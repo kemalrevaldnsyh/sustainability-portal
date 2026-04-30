@@ -1,0 +1,13 @@
+insert into public.documents (title, code, type, version, effective_date, action, category, ou_name, period, scope, jurisdiction, body, reference_no, status, submitted_date, issuer, certificate_no, issued, expires, license_no, issued_by, description, updated_by, updated_at)
+values
+  ('Palm Oil Sourcing Policy', null, 'Policy', '1', '2024-05-03', 'Download', 'policy-data', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null),
+  ('Code of Conduct', null, 'Policy', '1', '2025-08-01', 'Download', 'policy-data', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null),
+  ('Emergency Response Procedure', 'ERP-001', 'Procedure', '2', '2024-01-15', 'Download', 'procedure-data', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null),
+  ('Waste Management Procedure', 'WMP-002', 'Procedure', '1', '2024-03-01', 'Download', 'procedure-data', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null),
+  ('Sustainability Report 2023', null, 'Report', '1', null, 'Download', 'sustreport-data', null, 'Jan-Dec 2023', 'Group Consolidated', null, null, null, null, null, null, null, null, null, null, null, null, null, null),
+  ('Environmental Protection Act', 'UU No. 32/2009', 'Regulation', null, '2009-10-03', 'View', 'regulation-data', null, null, null, 'Indonesia', null, null, null, null, null, null, null, null, null, null, null, null, null),
+  ('RSPO Principles & Criteria', 'RSPO P&C 2018', 'Standard', '2018', '2018-11-01', 'View', 'standards-data', null, null, null, null, 'RSPO', null, null, null, null, null, null, null, null, null, null, null, null),
+  ('Land Rights Complaint - Site A', null, 'Grievance', null, null, 'View', 'grievance-data', null, null, null, null, null, 'GRV-2024-001', 'Resolved', '2024-02-14', null, null, null, null, null, null, null, null, null),
+  ('ISCC EU', null, 'Certificate', '1', null, 'View', 'certificate-data', 'Green Resources Pte. Ltd', null, null, null, null, null, null, null, 'SBC Asia Sertifikasi', '#EU-ISCC-Cert-ID230-20250026', '2025-06-21', '2026-06-20', null, null, null, null, null),
+  ('Business License (NIB)', null, 'License', null, null, 'View', 'license-data', null, null, null, null, null, null, null, null, null, null, '2020-01-10', null, '1234567890123', 'OSS - BKPM Indonesia', null, null, null),
+  ('ISCC EU Certificate Renewed', null, 'Update', null, null, 'View', 'update-data', null, null, null, null, null, null, null, null, null, null, null, null, null, null, 'Annual renewal completed for Green Resources Pte. Ltd', 'Admin', '2025-06-21');
