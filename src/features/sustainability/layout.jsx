@@ -47,7 +47,8 @@ export function Background() {
   );
 }
 
-export function Navbar({ onHome, notifOpen, setNotifOpen, onLogout }) {
+export function Navbar({ onHome, notifOpen, setNotifOpen, onLogout, userEmail }) {
+  const displayName = userEmail || "Signed-in User";
   return (
     <nav className="sp-navbar">
       <button onClick={onHome} className="sp-brand-btn" aria-label="Go to overview">
@@ -78,7 +79,7 @@ export function Navbar({ onHome, notifOpen, setNotifOpen, onLogout }) {
           <span className="sp-user-avatar">
             <Icon.User />
           </span>
-          Aziz Wijonarko
+          {displayName}
           <Icon.Chevron />
         </button>
         {onLogout && (

@@ -8,6 +8,7 @@ export default function AuthGate({ children }) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const [isAuthed, setIsAuthed] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
 
   useEffect(() => {
     if (!supabase) {
@@ -19,7 +20,9 @@ export default function AuthGate({ children }) {
     const bootstrap = async () => {
       const { data } = await supabase.auth.getSession();
       if (mounted) {
+        const sessionEmail = data.session?.user?.email || "";
         setIsAuthed(Boolean(data.session));
+        setUserEmail(sessionEmail);
         setLoading(false);
       }
     };
@@ -27,6 +30,7 @@ export default function AuthGate({ children }) {
 
     const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
       setIsAuthed(Boolean(session));
+      setUserEmail(session?.user?.email || "");
     });
 
     return () => {
@@ -38,7 +42,7 @@ export default function AuthGate({ children }) {
   const login = async (e) => {
     e.preventDefault();
     if (!supabase) {
-      setError("Supabase client is not configured.");
+      setError("Authentication is currently unavailable.");
       return;
     }
     setError("");
@@ -58,6 +62,7 @@ export default function AuthGate({ children }) {
       await supabase.auth.signOut();
     }
     setIsAuthed(false);
+    setUserEmail("");
     setEmail("");
     setPassword("");
     setError("");
@@ -74,7 +79,7 @@ export default function AuthGate({ children }) {
   }
 
   if (isAuthed) {
-    return typeof children === "function" ? children({ logout }) : children;
+    return typeof children === "function" ? children({ logout, userEmail }) : children;
   }
 
   return (
@@ -82,9 +87,9 @@ export default function AuthGate({ children }) {
       <div className="auth-card">
         <div className="auth-brand">SLMS</div>
         <h1 className="auth-title">Sustainability Portal</h1>
-        <p className="auth-subtitle">Secure access with Supabase authentication.</p>
+        <p className="auth-subtitle">Secure workspace for sustainability operations.</p>
         {!hasSupabaseClientConfig && (
-          <p className="auth-error">Missing auth env: set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.</p>
+          <p className="auth-error">System configuration is incomplete. Please contact administrator.</p>
         )}
         <form onSubmit={login} className="auth-form">
           <label className="auth-label">
@@ -99,7 +104,7 @@ export default function AuthGate({ children }) {
           <button className="auth-btn" type="submit" disabled={!hasSupabaseClientConfig}>
             Sign In
           </button>
-          <p className="auth-hint">Use a registered Supabase Auth account.</p>
+          <p className="auth-hint">Use your registered company account.</p>
         </form>
       </div>
     </div>

@@ -5,7 +5,7 @@ import { DATA, NOTIFS, OUS } from "./data";
 import { Background, Navbar, NotifPanel } from "./layout";
 import { DocListPage, OUDetailPage, OUPage, OverviewPage, SustainabilityPage } from "./pages";
 
-export default function SustainabilityPortal({ onLogout }) {
+export default function SustainabilityPortal({ onLogout, userEmail }) {
   const [page, setPage] = useState("overview");
   const [ouName, setOuName] = useState("");
   const [docConfig, setDocConfig] = useState({ title: "", data: null, backPage: "" });
@@ -18,7 +18,7 @@ export default function SustainabilityPortal({ onLogout }) {
   return (
     <div className="sp-root" onClick={() => setNotifOpen(false)}>
       <Background />
-      <Navbar onHome={() => nav("overview")} notifOpen={notifOpen} setNotifOpen={setNotifOpen} onLogout={onLogout} />
+      <Navbar onHome={() => nav("overview")} notifOpen={notifOpen} setNotifOpen={setNotifOpen} onLogout={onLogout} userEmail={userEmail} />
       <NotifPanel open={notifOpen} notifications={NOTIFS} />
 
       {page === "overview" && <OverviewPage nav={nav} openDoc={openDoc} />}
