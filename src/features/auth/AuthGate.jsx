@@ -68,15 +68,7 @@ export default function AuthGate({ children }) {
     setError("");
   };
 
-  if (loading) {
-    return (
-      <div className="auth-wrap">
-        <div className="auth-card">
-          <h1 className="auth-title">Loading...</h1>
-        </div>
-      </div>
-    );
-  }
+  if (loading) return null;
 
   if (isAuthed) {
     return typeof children === "function" ? children({ logout, userEmail }) : children;

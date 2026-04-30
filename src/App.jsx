@@ -8,17 +8,7 @@ export default function App() {
   return (
     <AuthGate>
       {({ logout, userEmail }) => (
-        <Suspense
-          fallback={
-            <div className="app-loading">
-              <div className="app-loading-card">
-                <div className="app-loading-bar short" />
-                <div className="app-loading-bar" />
-                <div className="app-loading-bar" />
-              </div>
-            </div>
-          }
-        >
+        <Suspense fallback={null}>
           <SustainabilityPortal onLogout={logout} userEmail={userEmail} />
         </Suspense>
       )}
