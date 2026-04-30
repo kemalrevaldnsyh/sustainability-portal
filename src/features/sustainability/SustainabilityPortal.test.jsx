@@ -52,4 +52,9 @@ describe("SustainabilityPortal", () => {
     expect(screen.getByDisplayValue("")).toBeInTheDocument();
     expect(screen.getByText("Showing 2 items")).toBeInTheDocument();
   });
+
+  it("renders logout button when handler provided", () => {
+    render(<SustainabilityPortal onLogout={() => {}} />);
+    expect(screen.getByRole("button", { name: "Logout" })).toBeInTheDocument();
+  });
 });

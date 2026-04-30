@@ -52,6 +52,9 @@ Create `.env.local` for local development (do not commit):
 ```bash
 SUPABASE_URL=https://your-project-ref.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+SUPABASE_ANON_KEY=your-anon-key
+VITE_SUPABASE_URL=https://your-project-ref.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
 ```
 
 Optional:
@@ -78,6 +81,8 @@ Implementation file:
 - Add env vars in **Project Settings -> Environment Variables**:
   - `SUPABASE_URL`
   - `SUPABASE_SERVICE_ROLE_KEY` (preferred) **or** `SUPABASE_ANON_KEY`
+  - `VITE_SUPABASE_URL`
+  - `VITE_SUPABASE_ANON_KEY`
 - Deploy.
 
 ## Team Conventions (Compact)

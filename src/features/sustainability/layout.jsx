@@ -47,7 +47,7 @@ export function Background() {
   );
 }
 
-export function Navbar({ onHome, notifOpen, setNotifOpen }) {
+export function Navbar({ onHome, notifOpen, setNotifOpen, onLogout }) {
   return (
     <nav className="sp-navbar">
       <button onClick={onHome} className="sp-brand-btn" aria-label="Go to overview">
@@ -81,6 +81,11 @@ export function Navbar({ onHome, notifOpen, setNotifOpen }) {
           Aziz Wijonarko
           <Icon.Chevron />
         </button>
+        {onLogout && (
+          <button className="sp-logout-btn" onClick={onLogout} aria-label="Logout">
+            Logout
+          </button>
+        )}
       </div>
     </nav>
   );

@@ -137,6 +137,24 @@
   color: #8b1a1a;
 }
 
+.sp-logout-btn {
+  border: 1.5px solid #8b1a1a;
+  border-radius: 999px;
+  background: white;
+  color: #8b1a1a;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sp-logout-btn:hover,
+.sp-logout-btn:focus-visible {
+  background: #8b1a1a;
+  color: white;
+}
+
 .sp-notif-panel {
   position: fixed;
   top: 70px;
