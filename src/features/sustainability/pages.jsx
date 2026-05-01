@@ -299,20 +299,22 @@ export function DocListPage({ config, nav, search, setSearch, viewMode, setViewM
           )}
 
           {viewMode === "list" && (
-            <table className="sp-table">
-              <thead>
-                <tr>
-                  {data.cols.map((col, i) => (
-                    <th key={`${col}-${i}`}>{col}</th>
+            <div className="sp-table-scroll">
+              <table className="sp-table">
+                <thead>
+                  <tr>
+                    {data.cols.map((col, i) => (
+                      <th key={`${col}-${i}`}>{col}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {filtered.map((row, ri) => (
+                    <TableRow key={`row-${ri}`} row={row} cols={data.cols} isLast={ri === filtered.length - 1} />
                   ))}
-                </tr>
-              </thead>
-              <tbody>
-                {filtered.map((row, ri) => (
-                  <TableRow key={`row-${ri}`} row={row} cols={data.cols} isLast={ri === filtered.length - 1} />
-                ))}
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           )}
 
           {viewMode === "grid" && (

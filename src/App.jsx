@@ -1,6 +1,5 @@
 import { Suspense, lazy } from "react";
 import AuthGate from "./features/auth/AuthGate.jsx";
-import "./features/auth/AuthGate.css";
 
 const SustainabilityPortal = lazy(() => import("./features/sustainability/SustainabilityPortal.jsx"));
 

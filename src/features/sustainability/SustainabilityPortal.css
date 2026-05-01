@@ -518,9 +518,18 @@
   margin-bottom: 20px;
 }
 
+.sp-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -4px;
+  padding: 0 4px;
+}
+
 .sp-table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 520px;
 }
 
 .sp-table th {
@@ -688,5 +697,191 @@
 
   .sp-overview-title {
     font-size: 32px;
+  }
+}
+
+/* Compact mobile layout */
+@media (max-width: 640px) {
+  .sp-navbar {
+    height: 52px;
+    padding: 0 10px;
+  }
+
+  .sp-brand-btn svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .sp-brand-title {
+    font-size: 15px;
+  }
+
+  .sp-brand-subtitle {
+    display: none;
+  }
+
+  .sp-nav-actions {
+    gap: 8px;
+  }
+
+  .sp-user-btn {
+    max-width: min(140px, 38vw);
+    padding: 5px 10px 5px 6px;
+    font-size: 11px;
+    gap: 6px;
+    border-radius: 20px;
+  }
+
+  .sp-user-avatar {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sp-user-avatar svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .sp-logout-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .sp-notif-panel {
+    right: 8px;
+    left: 8px;
+    width: auto;
+    max-width: none;
+    top: 58px;
+    padding: 14px;
+  }
+
+  .sp-page-header {
+    padding: 16px 12px 0;
+    gap: 12px;
+  }
+
+  .sp-page-title {
+    font-size: 22px;
+  }
+
+  .sp-doc-header {
+    padding: 16px 12px 0;
+    gap: 10px;
+  }
+
+  .sp-doc-title {
+    font-size: 22px;
+  }
+
+  .sp-doc-wrap {
+    padding: 12px 12px 28px;
+  }
+
+  .sp-doc-card {
+    padding: 16px 12px 20px;
+    border-radius: 14px;
+  }
+
+  .sp-overview {
+    min-height: calc(100vh - 52px);
+    padding: 20px 12px 28px;
+    justify-content: flex-start;
+  }
+
+  .sp-overview-header {
+    margin-bottom: 20px;
+  }
+
+  .sp-overview-title {
+    font-size: 26px;
+    letter-spacing: -0.5px;
+  }
+
+  .sp-overview-subtitle {
+    font-size: 13px;
+  }
+
+  .sp-overview-grid {
+    gap: 12px;
+    width: 100%;
+  }
+
+  .sp-overview-card {
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+  }
+
+  .sp-card {
+    padding: 18px 16px 14px;
+    border-radius: 12px;
+  }
+
+  .sp-overview-card-title {
+    font-size: 18px;
+  }
+
+  .sp-subcard-grid {
+    padding: 20px 12px;
+    gap: 14px;
+  }
+
+  .sp-subcard {
+    min-height: 0;
+  }
+
+  .sp-subcard-title {
+    font-size: 16px;
+  }
+
+  .sp-ou-grid {
+    padding: 16px 12px 28px;
+    gap: 10px;
+  }
+
+  .sp-ou-btn {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .sp-ou-label {
+    font-size: 11px;
+  }
+
+  .sp-toolbar {
+    gap: 10px;
+  }
+
+  .sp-view-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .sp-table th,
+  .sp-table-cell {
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  .sp-doc-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  .sp-grid-item {
+    padding: 14px 10px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .sp-user-btn {
+    max-width: min(110px, 36vw);
+  }
+
+  .sp-logout-btn {
+    padding: 5px 8px;
+    font-size: 10px;
   }
 }
