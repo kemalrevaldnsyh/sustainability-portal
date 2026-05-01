@@ -41,6 +41,17 @@ function formatValue(value) {
   return String(value);
 }
 
+/** Local part before @; if it contains ".", use only the segment before the first dot (never the domain). */
+export function displayNameFromEmail(email) {
+  if (!email || typeof email !== "string") return "";
+  const trimmed = email.trim();
+  const at = trimmed.indexOf("@");
+  const local = at === -1 ? trimmed : trimmed.slice(0, at);
+  if (!local) return "";
+  const dot = local.indexOf(".");
+  return dot === -1 ? local : local.slice(0, dot);
+}
+
 function mapDocumentToRow(doc, cols) {
   return cols.map((col) => {
     const candidates = COLUMN_FIELD_MAP[col] || [];
@@ -147,11 +158,14 @@ function GridItem({ row, cols }) {
   );
 }
 
-export function OverviewPage({ nav, openDoc }) {
+export function OverviewPage({ nav, openDoc, userEmail }) {
+  const firstName = displayNameFromEmail(userEmail);
+  const welcomeLine = firstName ? `Welcome, ${firstName}` : "Welcome";
+
   return (
     <div className="sp-overview">
       <div className="sp-overview-header">
-        <p className="sp-overview-kicker">Welcome to</p>
+        <p className="sp-overview-kicker">{welcomeLine}</p>
         <h1 className="sp-overview-title">SLMS Sustainability Portal</h1>
         <p className="sp-overview-subtitle">Transparency &amp; accountability in every step of our sustainability journey</p>
       </div>

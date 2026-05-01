@@ -21,7 +21,7 @@ export default function SustainabilityPortal({ onLogout, userEmail }) {
       <Navbar onHome={() => nav("overview")} notifOpen={notifOpen} setNotifOpen={setNotifOpen} onLogout={onLogout} userEmail={userEmail} />
       <NotifPanel open={notifOpen} notifications={NOTIFS} />
 
-      {page === "overview" && <OverviewPage nav={nav} openDoc={openDoc} />}
+      {page === "overview" && <OverviewPage nav={nav} openDoc={openDoc} userEmail={userEmail} />}
       {page === "sustainability" && <SustainabilityPage nav={nav} openDoc={openDoc} />}
       {page === "ou" && <OUPage nav={nav} openOU={openOU} ous={OUS} />}
       {page === "ou-detail" && <OUDetailPage name={ouName} nav={nav} openDoc={openDoc} />}
