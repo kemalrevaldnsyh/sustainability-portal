@@ -23,6 +23,7 @@ const COLUMN_FIELD_MAP = {
   "Certificate No.": ["certificate_no"],
   Issued: ["issued"],
   Expires: ["expires"],
+  Authority: ["issued_by", "issuer"],
   "License No.": ["license_no"],
   "Issued By": ["issued_by"],
   Description: ["description"],
@@ -86,18 +87,72 @@ const overviewCards = [
 ];
 
 const sustainCards = [
-  { title: "Policy", dataKey: "policy-data", icon: <Icon.PolicyDoc /> },
-  { title: "Procedure", dataKey: "procedure-data", icon: <Icon.Procedure /> },
-  { title: "Sustainability Report", dataKey: "sustreport-data", icon: <Icon.Report /> },
-  { title: "Regulation", dataKey: "regulation-data", icon: <Icon.Regulation /> },
-  { title: "Standards", dataKey: "standards-data", icon: <Icon.Standards /> },
-  { title: "Grievance", dataKey: "grievance-data", icon: <Icon.Grievance /> },
+  {
+    title: "Policy",
+    dataKey: "policy-data",
+    icon: <Icon.PolicyDoc />,
+    docTitle: "Policies",
+    desc: "Explore the foundational principles and commitments guiding our sustainability efforts.",
+  },
+  {
+    title: "Procedure",
+    dataKey: "procedure-data",
+    icon: <Icon.Procedure />,
+    docTitle: "Procedures",
+    desc: "Access detailed workflows and operational guidelines for implementing sustainable practices.",
+  },
+  {
+    title: "Sustainability Report",
+    dataKey: "sustreport-data",
+    icon: <Icon.Report />,
+    docTitle: "Sustainability Reports",
+    desc: "Review our annual progress, impact, and comprehensive ESG performance reports.",
+  },
+  {
+    title: "Regulation",
+    dataKey: "regulation-data",
+    icon: <Icon.Regulation />,
+    docTitle: "Regulations",
+    desc: "Navigate the legal frameworks and governmental compliance requirements governing our operations.",
+  },
+  {
+    title: "Standards",
+    dataKey: "standards-data",
+    icon: <Icon.Standards />,
+    docTitle: "Standards",
+    desc: "View the industry benchmarks and international criteria our operations adhere to.",
+  },
+  {
+    title: "Grievance",
+    dataKey: "grievance-data",
+    icon: <Icon.Grievance />,
+    docTitle: "Grievances",
+    desc: "A secure channel to report concerns, provide feedback, and seek resolutions.",
+  },
 ];
 
 const ouDetailCards = [
-  { title: "Certificate", dataKey: "certificate-data", icon: <Icon.Certificate /> },
-  { title: "Procedure", dataKey: "procedure-data", icon: <Icon.Procedure /> },
-  { title: "License", dataKey: "license-data", icon: <Icon.License /> },
+  {
+    title: "Certificate",
+    dataKey: "certificate-data",
+    icon: <Icon.Certificate />,
+    docTitle: "Certificates",
+    desc: "View official sustainability, quality, and operational certifications awarded to this unit.",
+  },
+  {
+    title: "Procedure",
+    dataKey: "procedure-data",
+    icon: <Icon.Procedure />,
+    docTitle: "Procedures",
+    desc: "Access detailed Standard Operating Procedures (SOPs) and guidelines specific to this operational unit.",
+  },
+  {
+    title: "License",
+    dataKey: "license-data",
+    icon: <Icon.License />,
+    docTitle: "Licenses",
+    desc: "Manage and review the legal permits and regulatory licenses required for daily operations.",
+  },
 ];
 
 function SubCardGrid({ items, onCardClick }) {
@@ -108,7 +163,7 @@ function SubCardGrid({ items, onCardClick }) {
           <div className="sp-card-icon sp-card-icon-dark">{c.icon}</div>
           <div>
             <h3 className="sp-subcard-title">{c.title}</h3>
-            <p className="sp-subcard-desc">Access certifications, policies, and compliance documentation.</p>
+            <p className="sp-subcard-desc">{c.desc || "Access certifications, policies, and compliance documentation."}</p>
           </div>
         </Card>
       ))}
@@ -188,7 +243,7 @@ export function SustainabilityPage({ nav, openDoc }) {
   return (
     <div className="sp-page">
       <PageHeader title="Sustainability" onBack={() => nav("overview")} />
-      <SubCardGrid items={sustainCards} onCardClick={(c) => openDoc(`${c.title}s`, c.dataKey, "sustainability")} />
+      <SubCardGrid items={sustainCards} onCardClick={(c) => openDoc(c.docTitle || c.title, c.dataKey, "sustainability")} />
     </div>
   );
 }
@@ -214,7 +269,7 @@ export function OUDetailPage({ name, nav, openDoc }) {
   return (
     <div className="sp-page">
       <PageHeader title={name} onBack={() => nav("ou")} leftAligned />
-      <SubCardGrid items={ouDetailCards} onCardClick={(c) => openDoc(`${c.title}s`, c.dataKey, "ou-detail")} />
+      <SubCardGrid items={ouDetailCards} onCardClick={(c) => openDoc(c.docTitle || c.title, c.dataKey, "ou-detail")} />
     </div>
   );
 }

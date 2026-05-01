@@ -50,7 +50,7 @@ describe("SustainabilityPortal", () => {
     fireEvent.click(screen.getByText("Policy"));
 
     expect(screen.getByDisplayValue("")).toBeInTheDocument();
-    expect(screen.getByText("Showing 2 items")).toBeInTheDocument();
+    expect(screen.getByText("Showing 6 items")).toBeInTheDocument();
   });
 
   it("renders logout button when handler provided", () => {
