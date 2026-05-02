@@ -646,3 +646,14 @@
     margin-top: 16px;
   }
 }
+
+/*
+ * iOS Safari zooms the viewport when focusing inputs with font-size under 16px.
+ * Apply ≥16px only on narrow viewports so desktop/tablet wide layouts stay visually unchanged.
+ */
+@media (max-width: 768px) {
+  .slms-login-page .field input {
+    font-size: 16px;
+    line-height: 1.35;
+  }
+}

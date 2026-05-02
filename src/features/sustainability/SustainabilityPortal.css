@@ -119,6 +119,7 @@
   font-weight: 600;
   color: #222;
   transition: border-color 0.2s;
+  min-width: 0;
 }
 
 .sp-user-btn:hover,
@@ -135,6 +136,25 @@
   align-items: center;
   justify-content: center;
   color: #8b1a1a;
+}
+
+.sp-user-email {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 220px;
+}
+
+/* Hide header email on small screens only — avoids cramped/truncated email; desktop unchanged */
+@media (max-width: 768px) {
+  .sp-user-email {
+    display: none;
+  }
+
+  .sp-user-btn {
+    max-width: none;
+    padding: 6px 10px 6px 8px;
+  }
 }
 
 .sp-logout-btn {
@@ -725,10 +745,10 @@
   }
 
   .sp-user-btn {
-    max-width: min(140px, 38vw);
-    padding: 5px 10px 5px 6px;
+    max-width: none;
+    padding: 5px 8px 5px 6px;
     font-size: 11px;
-    gap: 6px;
+    gap: 4px;
     border-radius: 20px;
   }
 
@@ -876,12 +896,33 @@
 }
 
 @media (max-width: 400px) {
-  .sp-user-btn {
-    max-width: min(110px, 36vw);
-  }
-
   .sp-logout-btn {
     padding: 5px 8px;
     font-size: 10px;
+  }
+}
+
+/*
+ * iOS Safari zooms the viewport when focusing inputs with font-size under 16px.
+ * Apply across the portal (search, any future fields) on narrow screens only.
+ * Login page is handled separately in slms-login.css under .slms-login-page.
+ */
+@media (max-width: 768px) {
+  /* default text inputs often omit `type`; still need ≥16px on iOS */
+  .sp-root input:not([type]),
+  .sp-root input[type="email"],
+  .sp-root input[type="password"],
+  .sp-root input[type="search"],
+  .sp-root input[type="text"],
+  .sp-root input[type="number"],
+  .sp-root input[type="tel"],
+  .sp-root input[type="url"],
+  .sp-root textarea {
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .sp-search-input {
+    font-size: 16px;
   }
 }

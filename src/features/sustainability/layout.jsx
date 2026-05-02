@@ -75,11 +75,15 @@ export function Navbar({ onHome, notifOpen, setNotifOpen, onLogout, userEmail })
           <Icon.Bell />
           <span className="sp-bell-dot" />
         </button>
-        <button className="sp-user-btn" aria-label="Open user menu">
+        <button
+          className="sp-user-btn"
+          type="button"
+          aria-label={userEmail ? `Account: ${userEmail}` : "Open user menu"}
+        >
           <span className="sp-user-avatar">
             <Icon.User />
           </span>
-          {displayName}
+          <span className="sp-user-email">{displayName}</span>
           <Icon.Chevron />
         </button>
         {onLogout && (

@@ -42,6 +42,13 @@ function formatValue(value) {
   return String(value);
 }
 
+/** Capitalize first letter, lowercase rest (single greeting token). */
+function toGreetingCase(token) {
+  if (!token) return "";
+  const lower = token.toLowerCase();
+  return lower.charAt(0).toUpperCase() + lower.slice(1);
+}
+
 /** Local part before @; if it contains ".", use only the segment before the first dot (never the domain). */
 export function displayNameFromEmail(email) {
   if (!email || typeof email !== "string") return "";
@@ -50,7 +57,8 @@ export function displayNameFromEmail(email) {
   const local = at === -1 ? trimmed : trimmed.slice(0, at);
   if (!local) return "";
   const dot = local.indexOf(".");
-  return dot === -1 ? local : local.slice(0, dot);
+  const raw = dot === -1 ? local : local.slice(0, dot);
+  return toGreetingCase(raw);
 }
 
 function mapDocumentToRow(doc, cols) {
