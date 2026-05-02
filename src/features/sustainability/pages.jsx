@@ -66,7 +66,9 @@ function mapDocumentToRow(doc, cols) {
     const candidates = COLUMN_FIELD_MAP[col] || [];
     for (const field of candidates) {
       if (doc[field] !== null && doc[field] !== undefined && doc[field] !== "") {
-        return formatValue(doc[field]);
+        let out = formatValue(doc[field]);
+        if (col === "Action" && out === "Download") out = "View";
+        return out;
       }
     }
     return "—";
