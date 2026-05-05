@@ -202,7 +202,7 @@ export default function AuthGate({ children }) {
             </div>
 
             <div className="hero-content">
-              <div className="hero-eyebrow">SLMS Group · Internal Platform</div>
+              <div className="hero-eyebrow">Sustainability Licensing Management System</div>
               <h1 className="hero-title">
                 Transparency in<span>Sustainability</span>
               </h1>
