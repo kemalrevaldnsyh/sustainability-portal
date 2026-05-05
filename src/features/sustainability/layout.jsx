@@ -52,7 +52,11 @@ export function Navbar({ onHome, notifOpen, setNotifOpen, onLogout, userEmail })
   return (
     <nav className="sp-navbar">
       <button onClick={onHome} className="sp-brand-btn" aria-label="Go to overview">
-        <img src="/sustainability-logo.png" alt="SLMS logo" className="sp-brand-logo" />
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+          <path d="M4 4 L20 4 L34 20 L20 34 L4 20 Z" fill="#8B1A1A" />
+          <path d="M4 4 L20 14 L4 20 Z" fill="#B22222" opacity="0.7" />
+          <text x="9" y="22" fontFamily="Figtree,sans-serif" fontWeight="800" fontSize="9" fill="white">SLMS</text>
+        </svg>
         <div className="sp-brand-text">
           <div className="sp-brand-title">SLMS</div>
           <div className="sp-brand-subtitle">Sustainability Portal</div>

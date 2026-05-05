@@ -62,14 +62,6 @@
   padding: 0;
 }
 
-.sp-brand-logo {
-  width: 38px;
-  height: 38px;
-  object-fit: cover;
-  border-radius: 8px;
-  display: block;
-}
-
 .sp-brand-text {
   text-align: left;
 }
@@ -735,7 +727,7 @@
     padding: 0 10px;
   }
 
-  .sp-brand-logo {
+  .sp-brand-btn svg {
     width: 32px;
     height: 32px;
   }
