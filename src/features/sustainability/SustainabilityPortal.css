@@ -362,6 +362,56 @@
   font-size: 13.5px;
 }
 
+.sp-card-cta {
+  align-self: flex-start;
+  margin-top: 16px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  border: 1px solid #111;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.sp-card:hover .sp-card-cta,
+.sp-card:focus-visible .sp-card-cta {
+  background: #262626;
+  border-color: #262626;
+  transform: translateY(-1px);
+}
+
+/* Inner pages only: red text link style CTA (no pill box) */
+.sp-subcard .sp-card-cta {
+  margin-top: 14px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #8b1a1a;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-weight: 700;
+  font-size: 12px;
+  border-bottom: 1px solid rgba(139, 26, 26, 0.35);
+}
+
+.sp-subcard:hover .sp-card-cta,
+.sp-subcard:focus-visible .sp-card-cta {
+  background: transparent;
+  border-color: transparent;
+  color: #6f1212;
+  border-bottom-color: rgba(111, 18, 18, 0.55);
+  transform: none;
+}
+
 .sp-subcard-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -840,6 +890,18 @@
 
   .sp-overview-card-title {
     font-size: 18px;
+  }
+
+  .sp-card-cta {
+    margin-top: 12px;
+    padding: 6px 10px;
+    font-size: 9px;
+  }
+
+  .sp-subcard .sp-card-cta {
+    margin-top: 10px;
+    padding: 0;
+    font-size: 12px;
   }
 
   .sp-subcard-grid {

@@ -175,6 +175,7 @@ function SubCardGrid({ items, onCardClick }) {
             <h3 className="sp-subcard-title">{c.title}</h3>
             <p className="sp-subcard-desc">{c.desc || "Access certifications, policies, and compliance documentation."}</p>
           </div>
+          <span className="sp-card-cta">Show More</span>
         </Card>
       ))}
     </div>
@@ -242,6 +243,7 @@ export function OverviewPage({ nav, openDoc, userEmail }) {
               <h2 className="sp-overview-card-title">{c.title}</h2>
               <p className="sp-overview-card-desc">{c.desc}</p>
             </div>
+            <span className="sp-card-cta">{`View ${c.title}`}</span>
           </Card>
         ))}
       </div>
