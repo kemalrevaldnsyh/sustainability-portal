@@ -331,24 +331,39 @@
 }
 
 .sp-card-icon {
-  display: flex;
-  justify-content: flex-end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: #222;
+  flex-shrink: 0;
 }
 
 .sp-card-icon-dark {
   color: #333;
 }
 
+.sp-card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: -3px;
+  margin-bottom: 10px;
+}
+
+.sp-card-title-row .sp-card-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
 .sp-overview-card-body {
-  margin-top: 16px;
+  margin-top: 2px;
 }
 
 .sp-overview-card-title {
   font-size: 22px;
   font-weight: 800;
   color: #222;
-  margin-bottom: 10px;
+  margin: 0;
 }
 
 .sp-overview-card-desc,
@@ -427,7 +442,7 @@
   font-size: 19px;
   font-weight: 800;
   color: #222;
-  margin-bottom: 8px;
+  margin: 0;
 }
 
 .sp-subcard-desc {

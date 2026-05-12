@@ -170,9 +170,11 @@ function SubCardGrid({ items, onCardClick }) {
     <div className="sp-subcard-grid">
       {items.map((c) => (
         <Card key={`${c.title}-${c.dataKey}`} onClick={() => onCardClick(c)} className="sp-subcard">
-          <div className="sp-card-icon sp-card-icon-dark">{c.icon}</div>
           <div>
-            <h3 className="sp-subcard-title">{c.title}</h3>
+            <div className="sp-card-title-row">
+              <span className="sp-card-icon sp-card-icon-dark">{c.icon}</span>
+              <h3 className="sp-subcard-title">{c.title}</h3>
+            </div>
             <p className="sp-subcard-desc">{c.desc || "Access certifications, policies, and compliance documentation."}</p>
           </div>
           <span className="sp-card-cta">Show More</span>
@@ -238,9 +240,11 @@ export function OverviewPage({ nav, openDoc, userEmail }) {
       <div className="sp-overview-grid">
         {overviewCards.map((c) => (
           <Card key={c.title} onClick={() => (c.page ? nav(c.page) : openDoc("Updates", "update-data", "overview"))} className="sp-overview-card">
-            <div className="sp-card-icon">{c.icon}</div>
             <div className="sp-overview-card-body">
-              <h2 className="sp-overview-card-title">{c.title}</h2>
+              <div className="sp-card-title-row">
+                <span className="sp-card-icon">{c.icon}</span>
+                <h2 className="sp-overview-card-title">{c.title}</h2>
+              </div>
               <p className="sp-overview-card-desc">{c.desc}</p>
             </div>
             <span className="sp-card-cta">{`View ${c.title}`}</span>
