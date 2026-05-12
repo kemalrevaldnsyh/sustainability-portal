@@ -271,9 +271,12 @@ export function OUPage({ nav, openOU, ous }) {
       <div className="sp-ou-grid">
         {ous.map((ou) => (
           <button key={ou.name} onClick={() => openOU(ou.name)} className="sp-ou-btn">
-            <span className="sp-ou-label" style={{ color: ou.color }}>
-              {ou.label}
-            </span>
+            <div className="sp-ou-content">
+              <span className="sp-ou-label">
+                {ou.name}
+              </span>
+              <span className="sp-ou-cta">View Unit</span>
+            </div>
           </button>
         ))}
       </div>
